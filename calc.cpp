@@ -82,7 +82,7 @@ void expression::calculate()
                 int index=1;
                 int numIter=i;
                 bool indicator=1;
-                while ((IsDigit(numIter)|expr[numIter]=='.'|expr[numIter]==',')&& numIter<expr.size())
+                while ((IsDigit(numIter)|expr[numIter]=='.'|expr[numIter]==',')&& numIter<expr.size()) //считает каждое отдельное число
                 {   
                     if(expr[numIter]=='.'|expr[numIter]==',') {
                             indicator=0;
@@ -90,10 +90,10 @@ void expression::calculate()
                             numIter++;
                             }
                     else {
-                            if(indicator) {
+                            if(indicator) {     //целое
                                 dgt*=10;
                                 dgt+=whatDigit(numIter);}
-                            else {
+                            else {              //дробное
                                 dgt+=whatDigit(numIter)/(pow(10,index));
                                 index++;}
                             numIter++;
